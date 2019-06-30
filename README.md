@@ -24,16 +24,21 @@ You can provide root domains, eg. wreet.xyz, or existing subdomains, eg. hola.wr
 ## adding subdomains or variations
 If you want to add your own subdomains or variations to check for, just append them to the appropriate file in the subs directory.
 `echo "staging2" >> subs/variations.txt`
+
 `echo "mail1337" >> subs/subs.txt`
 
 
 ## examples
-`./p8.js -d wreet.xyz -v` Test the common variations and print results to console.
+`./p8.js -d wreet.xyz -v` 
+Test the common variations and print results to console.
 
-`./p8.js -d wreet.xyz -e` Enumerate subdomains and print result to console.
+`./p8.js -d wreet.xyz -e` 
+Enumerate subdomains and print result to console.
 
-`./p8.js -d wreet.xyz -e -v -o results.txt` Do both enumeration and common variations check and export a list to results.txt.
+`./p8.js -d wreet.xyz -e -v -o results.txt` 
+Do both enumeration and common variations check and export a list to results.txt.
 
-`./p8.js -d domains.txt -v` Run common variations check on list of domains in domains.txt, print results to console.
+`./p8.js -d domains.txt -v` 
+Run common variations check on list of domains in domains.txt, print results to console.
 
 `./p8 -d app1337.wreet.xyz -e` Enumerate subs for the subdomain, print results to console.
