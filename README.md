@@ -23,6 +23,7 @@ This is a DNS-only tool. Thus it cannot provide as exhaustive a list as some oth
 You can provide root domains, eg. wreet.xyz, or existing subdomains, eg. hola.wreet.xyz, to be tested. 
 ## adding subdomains or variations
 If you want to add your own subdomains or variations to check for, just append them to the appropriate file in the subs directory.
+
 `echo "staging2" >> subs/variations.txt`
 
 `echo "mail1337" >> subs/subs.txt`
