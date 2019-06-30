@@ -1,0 +1,10 @@
+test
+dev
+staging
+prod
+development
+corp
+stage
+testing
+app
+qa

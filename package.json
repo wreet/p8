@@ -1,0 +1,15 @@
+{
+  "name": "p8",
+  "version": "0.1.0",
+  "description": "subhunter",
+  "main": "p8.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chase Higgins",
+  "license": "Bad Code License",
+  "dependencies": {
+    "async": "^3.1.0",
+    "dns-sync": "^0.1.3"
+  }
+}
