@@ -1,4 +1,4 @@
-# p8.js
+# p8.js - subhunter
 
 A basic subdomain enumeration tool
 
