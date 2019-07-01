@@ -8,3 +8,4 @@ stage
 testing
 app
 qa
+acceptance

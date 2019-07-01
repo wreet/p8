@@ -44,8 +44,11 @@ var p8 = {
         host: domain
       });
       // if variations on we need to check this one too
-      if (p8.args.variations) {
-        p8.checkDomainVariations(domain);
+      if (p8.args.variations) p8.checkDomainVariations(domain);
+      // if recursive enabled we have to go again
+      if (p8.args.recursive) {
+        console.log("going recurse: " + domain);
+        p8.enumerateSubs(domain);
       }
     });
   }, // end lookup
@@ -56,7 +59,7 @@ var p8 = {
     var rand = "wreet" + Math.floor(Math.random() * 1000000).toString();
     dns.resolveAny(rand + "." + domain, function(err, res) {
       if(!err) {
-        console.log("[i] wildcard: %s", domain);
+        console.log("[i] wildcard: *.%s", domain);
         return;
       }
       console.log("[i] searching for common variations of '%s'", domain);
@@ -93,7 +96,7 @@ var p8 = {
           console.log("[!] could not open subdomains file: %s", e);
           process.exit();
         }
-        async.eachLimit(p8.run.sublist, 50, function(sub) {
+        async.each(p8.run.sublist, function(sub) {
           p8.lookup(sub + "." + domain);
         }, function(err) {
           if (err) console.log("[!] %s", err);
@@ -125,6 +128,14 @@ var p8 = {
           p8.args.outfile = args[++i];
           break;
 
+        case "-r": // recursive enumeration
+          p8.args.recursive = true;
+          break;
+
+        case "-t": // only show subs with matching dns records
+          p8.args.type = agrs[++i].toUpperCase();
+          break;
+
         default:
           console.log("[!] did not recognize parameter '%s'", arg);
           p8.usage();
@@ -139,7 +150,9 @@ var p8 = {
     console.log("    -d   the domain to test or path to domains list");
     console.log("    -v   test common variations of target domains(eg. dev.domain.com)");
     console.log("    -e   enumerate most common subs, can be used with -v to test sub variations");
+    console.log("    -t   only show subs with record type -t(like dig, defauly is any)")
     console.log("    -o   output domains to a list, separated by newlines");
+    //console.log("    -r   recursive enumeration for discovered subdomains(slower)");
     console.log();
     console.log("in variation mode, domains arg can take path to file of domains to test for variations");
     console.log("note: path must include a slash, eg ./domains.txt");
