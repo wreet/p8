@@ -4,7 +4,7 @@ A basic subdomain enumeration tool
 
 ## usage
 ```
-[~] p8.js 0.1.0 - subhunter
+[~] p8.js - subhunter
 usage: p8.js [opts]
 options:
     -d   the domain to test or path to domains list
@@ -16,7 +16,7 @@ in variation mode, domains arg can take path to file of domains to test for vari
 note: path must include a slash, eg ./domains.txt
 ```
 
-p8 accepts a domain or a list of domains and enumerates common subdomains by trying a list of the ~10000 most popular subdomains on the internet. What makes it different is that p8 will also try a list of common interesting subdomains(in -v mode), mostly environments e.g. prod.wreet.xyz. This helps to find more interesting attack surfaces.
+p8 accepts a domain or a list of domains and enumerates common subdomains by trying a list of the ~10000 most popular subdomains on the internet. What makes it different is that p8 will also try a list of common interesting subdomains(in -v mode), mostly environments e.g. prod.wreet.xyz, for any subdomain it discovers. This helps to find more interesting attack surfaces.
 
 This is a DNS-only tool. Thus it cannot provide as exhaustive a list as some other subdomain finders, however it is very fast.  
 
