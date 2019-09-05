@@ -43,3 +43,8 @@ Do both enumeration and common variations check and export a list to results.txt
 Run common variations check on list of domains in domains.txt, print results to console.
 
 `./p8 -d app1337.wreet.xyz -e` Enumerate subs for the subdomain, print results to console.
+
+**Sources to be implemented**
+https://riddler.io/
+https://spyse.com/
+
